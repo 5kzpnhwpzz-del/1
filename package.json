@@ -6,6 +6,6 @@
   "private": true,
   "packageType": "mods",
   "appName": "MEGA GO (diagnóstico)",
-  "websiteURL": "https://www.google.com/",
+  "websiteURL": "https://megago.cl/",
   "main": "main.js"
 }
