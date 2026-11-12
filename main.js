@@ -1,14 +1,50 @@
 (function () {
   'use strict';
-  // Diagnostic only: does not alter authentication, DRM, or playback.
-  console.log('[MEGA GO TizenBrew test] Script loaded at:', location.href);
-  function showStatus() {
-    var el = document.createElement('div');
-    el.textContent = 'MEGA GO: módulo de prueba activo';
-    el.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483647;background:#202020;color:white;padding:10px;font:16px sans-serif;border:1px solid #999';
-    document.body.appendChild(el);
-    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 12000);
+
+  var PREFIX = '[MEGA GO Diagnostico]';
+
+  try {
+    console.log(PREFIX, 'Modulo iniciado');
+    console.log(PREFIX, 'URL:', location.href);
+    console.log(PREFIX, 'User Agent:', navigator.userAgent);
+
+    function mostrarDiagnostico() {
+      if (!document.body) {
+        console.warn(PREFIX, 'document.body no disponible');
+        return;
+      }
+
+      var panel = document.createElement('div');
+
+      panel.id = 'megago-diagnostico';
+      panel.textContent =
+        'MEGA GO - Diagnostico OK | TizenBrew activo';
+
+      panel.style.cssText =
+        'position:fixed;' +
+        'top:20%;left:5%;width:90%;' +
+        'box-sizing:border-box;' +
+        'background:#123b62;color:white;' +
+        'padding:25px;text-align:center;' +
+        'font:22px sans-serif;' +
+        'z-index:2147483647;' +
+        'border:3px solid white;';
+
+      document.body.appendChild(panel);
+
+      console.log(PREFIX, 'Panel mostrado');
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener(
+        'DOMContentLoaded',
+        mostrarDiagnostico
+      );
+    } else {
+      mostrarDiagnostico();
+    }
+
+  } catch (error) {
+    console.error(PREFIX, error);
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', showStatus);
-  else showStatus();
 }());
