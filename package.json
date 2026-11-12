@@ -1,10 +1,11 @@
+
 {
   "name": "megago-tizenbrew-test",
-  "version": "0.1.0",
-  "description": "Experimental MEGA GO website compatibility probe for TizenBrew; unofficial",
+  "version": "0.2.0",
+  "description": "Experimental MEGA GO compatibility diagnostics for TizenBrew; unofficial",
   "private": true,
   "packageType": "mods",
-  "appName": "MEGA GO (prueba)",
+  "appName": "MEGA GO (diagnóstico)",
   "websiteURL": "https://www.megago.cl/",
   "main": "main.js"
 }
